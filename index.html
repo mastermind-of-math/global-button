@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Global Button</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A Global Button powered by Google's Firebase Console">
+        <meta charset="utf-8">
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+        <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="icon" type="image/css" sizes="32x32" href="">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body id="body">
+        <center>
+            <div id="settings" class="modal fade">
+                <div id="setting-content" class="modal-content">
+                    <div id="settings-title" class="modal-header">
+                        <span id="settings-title-text">Settings</span>
+                    </div>
+                    <div id="settings-settings" class="modal-body">
+                        <span class="settings-main">
+                            <br>
+                            <label for="#backcolor">Background Color: </label>
+                            <input id="backcolor" type="color" class="color-select" value="#dcdcdc" onchange="updateStyle()">
+                            <br>
+                            <label for="#buttoncolor">Button Color: </label>
+                            <input id="buttoncolor" type="color" class="color-select" value="#cdcdcd" onchange="updateStyle()">
+                            <br>
+                            <label for="#textcolor">Text Color: </label>
+                            <input id="textcolor" type="color" class="color-select" value="#000000" onchange="updateStyle()">
+                            <br>
+                            <div class='dropdown'>
+                                <label for='#dropbtn' id='font'>Font Family: monospace</label>
+                                <br>
+                                <button onclick='selectFont()' class='dropbtn' id="select">Select Font</button>
+                                <div id='items' class='dropdown-content'>
+                                    <input type="text" placeholder="Search..." id="myInput" onkeyup="filterFunction()">
+                                    <a onclick='font("Arial")'>Arial</a>
+                                    <a onclick='font("Azeret Mono")'>Azeret Mono</a>
+                                    <a onclick='font("cursive")'>Cursive</a>
+                                    <a onclick='font("fantasy")'>Fantasy</a>
+                                    <a onclick='font("Lucida Sans")'>Lucida Sans</a>
+                                    <a onclick='font("Lucida Sans Regular")'>Lucida Sans Regular</a>
+                                    <a onclick='font("Lucida Sans Unicode")'>Lucida Sans Unicode</a>
+                                    <a onclick='font("Lucida Grande")'>Lucida Grande</a>
+                                    <a onclick='font("monospace")'>Monospace</a>
+                                    <a onclick='font("Orbitron")'>Orbitron</a>
+                                    <a onclick='font("sans-serif")'>Sans Serif</a>
+                                    <a onclick='font("serif")'>Serif</a>
+                                    <a onclick='font("Tahoma")'>Tahoma</a>
+                                    <a onclick='font("Verdana")'>Verdana</a>
+                                </div>
+                              </div>
+                        </span>
+                        <br>
+                        <label for="#round">Round Large Numbers: </label>
+                        <input id="round" type="checkbox" class="check" checked onchange="updateCheck()">
+                        <br>
+                        <button id="reset" class="button" onclick="reset()">Reset</button>
+                        <button id="settings-close" type="button" class="close" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <button onclick="addClick(1)" id="button">Click Me!</button>
+
+
+
+
+            <br>
+            <div class="div" id="full-disp"></div>
+            <div class="div" id="self-disp"></div>
+            <div class="div" id="per-disp"></div>
+            <button id="settings-open" data-toggle="modal" data-target="#settings">Settings</button>
+        </center>
+        <script src="main.js"></script>
+    </body>
+</html>
